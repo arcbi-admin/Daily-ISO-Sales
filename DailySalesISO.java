@@ -42,7 +42,7 @@ public class DailySalesISO
          getDate();
         System.out.println("Fetching Data..");
         
-        String query = "Select A.Store AS STORE, to_char(Trunc(A.Tran_Datetime),'DD-MON-YYYY') AS BUSINESS_DATE, To_Char(A.Tran_Datetime,'HH24:MI:SS AM') AS MY_TIME,"
+        String query = "Select A.Store AS STORE, to_char(Trunc(A.Tran_Datetime),'DD-MM-YYYY') AS BUSINESS_DATE, To_Char(A.Tran_Datetime,'HH24:MI:SS AM') AS MY_TIME,"
              +"C.Cust_Id AS CUST_ID, C.Postal_Code AS POSTAL_CODE, B.Tran_Seq_No AS TRAN_SEQ_NO, a.Tran_No AS TRAN_NO, B.Item_Seq_No AS ITEM_SEQ_NO, Substr(Lpad(a.Tran_No,10,0),1,3) AS REGISTER_NUM, B.Item AS ITEM,"
              +"B.Non_Merch_Item AS NON_MERCH_ITEM, B.Qty AS QTY, B.Unit_Retail AS UNIT_RETAIL, b.Total_Igtax_Amt AS TOTAL_IGTAX_AMT, E.Av_Cost AS AV_COST From Sa_Tran_Head A Inner Join Sa_Tran_Item B On A.Store = B.Store "
              +"AND A.TRAN_SEQ_NO = B.TRAN_SEQ_NO INNER JOIN SA_CUSTOMER C ON A.STORE = C.STORE AND A.DAY = C.DAY AND A.TRAN_SEQ_NO = C.TRAN_SEQ_NO "
