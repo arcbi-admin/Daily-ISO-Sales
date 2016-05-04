@@ -53,7 +53,7 @@ public class DailySalesISO
        pStatement = con.prepareStatement(query);
        rs = pStatement.executeQuery();
        
-       System.out.println("Creating Report..");
+       System.out.println("Writing Report..");
        file = new File("Daily ISO Sales (as of "+date2+").csv");
        file.createNewFile();
        FileWriter writer = new FileWriter(file); 
@@ -153,6 +153,15 @@ public class DailySalesISO
          Transport.send(message);
          transport.close();
          System.out.println("Message sent successfully.");
+         System.out.println("Recipients:");
+         for (int i = 0; i < to.length; i++)
+            {
+                System.out.println(to[i]);
+            }
+        for (int i = 0; i < cc.length; i++)
+            {
+                System.out.println(cc[i]);
+            }
       }catch (MessagingException mex) {
           System.out.print(mex);
       }
