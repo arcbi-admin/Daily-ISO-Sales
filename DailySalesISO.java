@@ -48,7 +48,7 @@ public class DailySalesISO
              +"AND A.TRAN_SEQ_NO = B.TRAN_SEQ_NO INNER JOIN SA_CUSTOMER C ON A.STORE = C.STORE AND A.DAY = C.DAY AND A.TRAN_SEQ_NO = C.TRAN_SEQ_NO "
              +"INNER JOIN ITEM_LOC_SOH E ON B.ITEM = E.ITEM AND B.STORE = E.LOC WHERE "
              +"TRUNC(TRAN_DATETIME) = '"+date+"' AND A.TRAN_TYPE in ('SALE','RETURN','LAYCMP') AND A.STATUS = 'P' AND C.CUST_ID IN "
-             +"(select card_no1 from METRO_IT_MRC_ISO_ACCNTS@METROBIP_DBLINK  where mrc1=6)";
+             +"(select card_no1 from METRO_IT_MRC_ISO_ACCNTS@METROBIP_DBLINK  where mrc1=7)";
         
        pStatement = con.prepareStatement(query);
        rs = pStatement.executeQuery();
